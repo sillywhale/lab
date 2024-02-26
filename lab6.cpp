@@ -45,9 +45,7 @@ bool solve(int board[N][N], int col)
 int main() 
 { 
     int board[N][N] {}; 
-  
     if (solve(board, 0) == false)
         return 0;
-        
     printSolution(board); 
 } 
