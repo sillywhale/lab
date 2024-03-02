@@ -19,30 +19,31 @@ string* create(const int& n){
 }
 
 template <typename T>
-void del(T* arr, int& n, const int& k ){
-  T* tmpArr = new T[n-1];
-  for (int i = 0; i < n; i++)
-    if ( i == k)
-      tmpArr[i] = arr[i+1];
-    else
-      tmpArr[i] = arr[i];
-  n--;
+T* del(T* arr, int& n, const int& k ){
+  T* tmpArr = new T[n];
+  for (int i = 0; i < k; i++)
+    tmpArr[i] = arr[i];
+  for ( int  i = k; k < n-1; i++)
+    tmpArr[i] = arr[i+1];
   delete[] arr;
+  n--;
   arr = tmpArr;
-  delete[] tmpArr;
+  return arr;
 }
 
 int main()
 {
   int n = 4;
   string* myList = create(n);
-  //print(myList, n);
-
+  int tmp = 0;
   for (int i = 0; i < n; i++){
-    if ( myList[i].front() == 'A' && myList[i].back() == 'a'){
-      del(myList, n, i);
+    if ( (myList[i].front() == 'A' || myList[i].front() == 'a') 
+    && (myList[i].back() == 'a')){
+      tmp = i;
     }
+
   }
+  myList = del(myList, n, tmp);
   print(myList, n);
 
   delete[] myList;
