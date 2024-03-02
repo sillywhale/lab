@@ -31,6 +31,26 @@ struct list{
     return elems == 0;
   }
 
+  void pushFront(char* v){
+
+  }
+
+  void pushBack(char* v){
+
+  }
+
+  void popFront(){
+
+  }
+
+  void popBack(){
+
+  }
+
+  void insert(int k, char* v){
+
+  } 
+
 };
 
 int main()
