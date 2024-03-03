@@ -2,18 +2,20 @@
 using namespace std;
 
 struct node{
-  char* data
+  char* data;
   node* next;
   node* previous;
 
   node(char* v, node* next, node* prev){
     data = v;
-    next = n;
+    next = next;
     previous = prev;
   }
 };
 
 struct list{
+  node* head;
+  int elems;
   list(){
     head = nullptr;
     elems = 0;
