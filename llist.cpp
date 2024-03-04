@@ -14,11 +14,12 @@ struct node{
 };
 
 class LinkList{
-  node* head;
+  node* head, *tail;
   int elems;
 public:
    LinkList(){
      head = nullptr;
+     tail = nullptr;
      elems = 0;
    }
 
@@ -35,8 +36,17 @@ public:
       return elems == 0;
     }
 
+    void pushBack(string data){
+      if (empty()) push(data);
+      else{
+        insert(tail, data);
+      }
+    }
+
     void push(string data){
-      head = new node(data, head); 
+      head = new node(data, head);
+      if ( tail == nullptr) 
+        tail = head;
       elems++;
     }
 
@@ -44,6 +54,8 @@ public:
       node* tmp = head->next;
       delete head;
       head = tmp;
+      if (head == nullptr)
+        tail == nullptr;
       elems--;
     }
 
@@ -68,6 +80,8 @@ public:
 
     void insert(node* elem, string data){
       elem->next = new node(data, elem->next);
+      if ( elem = tail)
+        tail = tail->next;
       elems++;
     }
 
@@ -75,6 +89,8 @@ public:
       node* tmp = elem->next;
       elem->next = tmp->next;
       delete tmp;
+      if ( tail == tmp)
+        tail = elem;
       elems--;
     }
 };
@@ -82,13 +98,13 @@ public:
 int main()
 {
   LinkList myList;
-  myList.push("Hello");
-  myList.push(" ");
-  myList.push("world!");
+  myList.pushBack("Hello");
+  myList.pushBack(" ");
+  myList.pushBack("world!");
   
   myList.print();
 
-  myList.insert(myList.getNode(1), " new ");
+  myList.insert(myList.getNode(1), "new ");
   myList.eraseAfter(myList.getNode(2));
   myList.print();
 
