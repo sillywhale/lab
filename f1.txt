@@ -1,4 +1,4 @@
 string that contain same word - string
 string that doesnt contain same word
 some random string
-
+word string string

@@ -93,7 +93,7 @@ int main()
   myList.push("some");
   myList.push("another");
   myList.print();
-  myList.erase(myList.getNode(0));
+  myList.erase(myList.getNode(2));
   myList.print();
 
   return 0;
