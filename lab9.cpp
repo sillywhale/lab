@@ -21,6 +21,7 @@ int main()
                 hasEquals=true;
                 break;
             }
+
         }
         if (hasEquals) 
             out << line << endl;
