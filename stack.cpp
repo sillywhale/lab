@@ -20,6 +20,7 @@ class Stack{
 public:
   node* head;
   int size;
+
   Stack(){
     head == nullptr;
     size = 0;
@@ -49,11 +50,16 @@ public:
     return head->val;
   }
 
-  void print(Stack q){
-    for (node* n = head; n != nullptr ; n = n->next){
-      cout << top();
-      q.push(top());
-      pop();
+  void print(Stack tempStack){
+    int tmp = size;
+    if ( head == nullptr)
+      cout << "Stack is empty";
+    else{
+      for ( int i = 0; i < tmp; i++){
+        cout << top() << ' ';
+        tempStack.push(top());
+        pop();
+      }
     }
   }
 
@@ -61,16 +67,18 @@ public:
 
 int main(){
   srand(time(NULL));
-  Stack myStack, s2;
+  Stack myStack, tempStack;
   int stackSize;
   cout << "Input stack size \n";
   cin >> stackSize;
   for (int i = 0; i < stackSize; i++){
-    int tmp;
-    cin >> tmp;
+    int tmp = rand() % 10;
+    cout << tmp << ' ';
     myStack.push(tmp);
   }
-  myStack.print(s2);
+  myStack.pop();
+  cout << endl;
+  myStack.print(tempStack);
 
   return 0;
 }

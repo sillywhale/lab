@@ -60,7 +60,7 @@ public:
     }
 
     void print(){
-      for(node* n = head; n ; n = n->next){
+      for(node* n = head; n != nullptr ; n = n->next){
         cout << n->val << ' ';
       }
       cout << endl;
@@ -101,10 +101,9 @@ int main()
   myList.pushBack("Hello");
   myList.pushBack(" ");
   myList.pushBack("world!");
-  
   myList.print();
-
   myList.insert(myList.getNode(1), "new ");
+  myList.print();
   myList.eraseAfter(myList.getNode(2));
   myList.print();
 

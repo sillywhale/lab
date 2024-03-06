@@ -74,8 +74,8 @@ public:
         tail = elem->prev;
       } 
       else {
-        elem->next->prev = elem->prev;
         elem->prev->next = elem->next;
+        elem->next->prev = elem->prev;
         delete elem;
       }
     }
@@ -93,7 +93,7 @@ int main()
   myList.push("some");
   myList.push("another");
   myList.print();
-  myList.erase(myList.getNode(2));
+  myList.erase(myList.getNode(0));
   myList.print();
 
   return 0;
